@@ -5,6 +5,7 @@ import SignUp from "../pages/SignUp";
 import Home from "../pages/Home";
 import AuthPage from "../pages/AuthPage";
 import AddEquipment from "../pages/AddEquipment";
+import AddEquiPrivate from "../privateRouter/AddEquiPrivate";
 
 const router = createBrowserRouter([
     {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
             },
             {
                 path:'/addEquipment',
-                element:<AddEquipment></AddEquipment>
+                element:<AddEquiPrivate><AddEquipment></AddEquipment></AddEquiPrivate>
             }
         ]
     },
