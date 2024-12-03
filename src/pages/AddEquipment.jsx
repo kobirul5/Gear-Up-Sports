@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddEquipment = () => {
     const { user } = useContext(AuthContext)
@@ -21,7 +22,7 @@ const AddEquipment = () => {
         const userName=form.userName.value
         const description=form.description.value
 
-        const items = {
+        const sportsEquipment = {
             itemName,
             categoryName,
             price,
@@ -34,7 +35,29 @@ const AddEquipment = () => {
             userName,
             description,
         }
-            console.log(items)
+            // console.log(items)
+
+        fetch("http://localhost:4000/allEquipment", {
+            method: "POST",
+            headers:{
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(sportsEquipment)
+        })
+        .then(res=> res.json())
+        .then(data=>{
+            console.log(data)
+            if(data.insertedId){
+                Swal.fire({
+                    title: 'successful!',
+                    text: 'Added Coffee Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'close'
+                  })
+                }
+        })
+
+
     }
 
 

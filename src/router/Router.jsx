@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import AuthPage from "../pages/AuthPage";
 import AddEquipment from "../pages/AddEquipment";
 import AddEquiPrivate from "../privateRouter/AddEquiPrivate";
+import AllEquipment from "../pages/AllEquipment";
 
 const router = createBrowserRouter([
     {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
             {
                 path:'/addEquipment',
                 element:<AddEquiPrivate><AddEquipment></AddEquipment></AddEquiPrivate>
+            },
+            {
+                path:'/allEquipment',
+                element: <AllEquipment></AllEquipment>
             }
         ]
     },
