@@ -1,47 +1,51 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { FaBars } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
+    const {user} = useContext(AuthContext)
 
-    
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-5 w-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h8m-8 6h16" />
-                        </svg>
+                        <FaBars></FaBars>
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                        <li><NavLink to="/auth">auth</NavLink></li>
-                        
-                        <li><a>Item 3 </a></li>
+                        className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-52 p-2 shadow gap-3">
+                        <li><NavLink to="/">Home</NavLink></li>
+                        <li><NavLink to="/allEquipment">All Sports Equipment</NavLink></li>
+                        <li><NavLink to="/addEquipment">Add Equipment</NavLink></li>
+                        <li><NavLink to="/myEquipment">My Equipment List</NavLink></li>
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a className="btn btn-ghost text-xl">GearUp Sports</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                <li><NavLink to="/">Home</NavLink></li>
-                
-                <li><NavLink to="/auth/signUp">Sign UP</NavLink></li>
-                   
+                <ul className="menu menu-horizontal px-1 gap-3">
+                    <li><NavLink to="/">Home</NavLink></li>
+                    <li><NavLink to="/allEquipment">All Sports Equipment</NavLink></li>
+                    <li><NavLink to="/addEquipment">Add Equipment</NavLink></li>
+                    <li><NavLink to="/myEquipment">My Equipment List</NavLink></li>
                 </ul>
             </div>
             <div className="navbar-end">
-            <NavLink to="/auth/login" className="btn">Login</NavLink>
+                {
+                    user? 
+                    <div className='flex justify-center gap-3 items-center'>
+                        <img className='w-10 h-10 rounded-full border' src=''/>
+                        <NavLink to="/auth/login" className="btn">Logout</NavLink>
+                    </div>
+                    :
+                    <div className='flex justify-center gap-3 items-center'>
+                        <NavLink to="/auth/signUp" className="btn">Sign UP</NavLink>
+                        <NavLink to="/auth/login" className="btn">Login</NavLink>
+                    </div>
+                }
+                
             </div>
         </div>
     );

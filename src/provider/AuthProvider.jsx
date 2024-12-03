@@ -16,12 +16,14 @@ const AuthProvider = ({ children }) => {
 
     // login
     const loginWithEmailPassword = (email, password) => {
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
 
     // auth on change 
     useEffect(() => {
+        setLoading(false)
      const unsubscribe =   onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
         }) 
