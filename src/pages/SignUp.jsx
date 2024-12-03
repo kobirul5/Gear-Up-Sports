@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const SignUp = () => {
-    const { user, setUser, signUpWithEmailPassword } = useContext(AuthContext)
+    const { user, setUser, signUpWithEmailPassword, updatedProfileInfo } = useContext(AuthContext)
 
     const handleSignUp = (e) => {
         e.preventDefault()
         const form = e.target;
         const name = form.name.value
+        const photo = form.photo.value
         const email = form.email.value
         const password = form.password.value
 
@@ -16,12 +17,19 @@ const SignUp = () => {
             .then((userCredential) => {
                 const user = userCredential.user;
                 setUser(user)
+                updatedProfileInfo({displayName: name, photoURL: photo})
+                .then(result=>{
+
+                })
+                .catch(error=>{
+
+                })
             })
             .catch((error) => {
                 const errorMessage = error.message;
             });
     }
-
+console.log(user)
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:w-1/2">
@@ -35,6 +43,12 @@ const SignUp = () => {
                                 <span className="label-text">Name</span>
                             </label>
                             <input type="text" placeholder="Your Name" name="name" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Photo URL</span>
+                            </label>
+                            <input type="text" placeholder="Photo URL" name="photo" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
