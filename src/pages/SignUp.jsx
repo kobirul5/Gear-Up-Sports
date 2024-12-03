@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
     const { user, setUser, signUpWithEmailPassword, updatedProfileInfo } = useContext(AuthContext)
-
+    const navigate = useNavigate()
     const handleSignUp = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -12,21 +13,37 @@ const SignUp = () => {
         const photo = form.photo.value
         const email = form.email.value
         const password = form.password.value
+        const regex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+        if (!regex.test(password)) {
+            return alert("Please enter upper case, lower case and minimum 6 character password")
+        }
 
         signUpWithEmailPassword(email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
                 setUser(user)
+                
                 updatedProfileInfo({displayName: name, photoURL: photo})
                 .then(result=>{
-
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Login Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Close'
+                      })
+                    navigate('/')
                 })
                 .catch(error=>{
-
                 })
             })
             .catch((error) => {
                 const errorMessage = error.message;
+                Swal.fire({
+                    title: 'Error!',
+                    text: `${errorMessage}`,
+                    icon: 'error',
+                    confirmButtonText: 'Close'
+                  })
             });
     }
 console.log(user)

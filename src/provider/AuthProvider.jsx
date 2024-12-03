@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
 
     // register
     const signUpWithEmailPassword = (email, password) => {
-
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
@@ -46,9 +46,9 @@ const AuthProvider = ({ children }) => {
 
     // auth on change 
     useEffect(() => {
-        setLoading(false)
-     const unsubscribe =   onAuthStateChanged(auth, currentUser => {
+        const unsubscribe =   onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
+            setLoading(false)
         }) 
         return()=>{
             unsubscribe()

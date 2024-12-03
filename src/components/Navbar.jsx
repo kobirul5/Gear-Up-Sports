@@ -36,7 +36,7 @@ const Navbar = () => {
                 {
                     user? 
                     <div className='flex justify-center gap-3 items-center'>
-                        <img className='w-10 h-10 rounded-full border' src=''/>
+                        <img title={user && user.displayName} className='w-10 h-10 rounded-full border' src={user && user.photoURL}/>
                         <NavLink onClick={logout} to="/auth/login" className="btn">Logout</NavLink>
                     </div>
                     :

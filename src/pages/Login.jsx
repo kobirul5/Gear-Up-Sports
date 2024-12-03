@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import GoogleIcon from "../assets/icons/google.png";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const {setUser, loginWithEmailPassword, handleGoogle} = useContext(AuthContext)
@@ -17,10 +18,21 @@ const Login = () => {
             const user = userdata.user;
             setUser(user)
             navigate('/')
+            Swal.fire({
+                title: 'Success',
+                text: 'Login Successfully',
+                icon: 'success',
+                confirmButtonText: 'Close'
+              })
           })
           .catch((error) => {
             const errorMessage = error.message;
-            alert(errorMessage)
+            Swal.fire({
+                title: 'Error!',
+                text: `${errorMessage}`,
+                icon: 'error',
+                confirmButtonText: 'Close'
+              })
           });
 
     }
