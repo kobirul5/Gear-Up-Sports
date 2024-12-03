@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import GoogleIcon from "../assets/icons/google.png";
 
 const Login = () => {
-    const {setUser, loginWithEmailPassword} = useContext(AuthContext)
+    const {setUser, loginWithEmailPassword, handleGoogle} = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handleLogin =(e)=>{
         e.preventDefault()
@@ -15,6 +16,7 @@ const Login = () => {
         .then((userdata) => {
             const user = userdata.user;
             setUser(user)
+            navigate('/')
           })
           .catch((error) => {
             const errorMessage = error.message;
@@ -51,10 +53,10 @@ const Login = () => {
                         </div>
                     </form>
                     <div className="flex flex-col justify-center px-8 text-center gap-2">
-                        <div className="flex gap-2 border p-2">
+                        <button onClick={handleGoogle} className="flex gap-2 border p-2">
                             <img className="w-6" src={GoogleIcon} alt="" />
                             <p>Continue With Google</p>
-                        </div>
+                        </button>
                     </div>
                     <label className="label">
                         <Link to="/auth/signUp" className="label-text-alt link link-hover px-8 pb-8">Don't have an account? <span className="text-blue-600">Sign Up</span></Link>

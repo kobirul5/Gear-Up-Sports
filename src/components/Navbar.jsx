@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 
 const Navbar = () => {
-    const {user} = useContext(AuthContext)
+    const {user, logout} = useContext(AuthContext)
 
     return (
         <div className="navbar bg-base-100">
@@ -37,7 +37,7 @@ const Navbar = () => {
                     user? 
                     <div className='flex justify-center gap-3 items-center'>
                         <img className='w-10 h-10 rounded-full border' src=''/>
-                        <NavLink to="/auth/login" className="btn">Logout</NavLink>
+                        <NavLink onClick={logout} to="/auth/login" className="btn">Logout</NavLink>
                     </div>
                     :
                     <div className='flex justify-center gap-3 items-center'>

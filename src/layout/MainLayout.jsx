@@ -3,17 +3,21 @@ import Navbar from "../components/Navbar";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Loading from "../components/Loading";
+import Footer from "../components/Footer";
 
 const MainLayout = () => {
-    const {loading} = useContext(AuthContext)
+    const { loading } = useContext(AuthContext)
 
-    if(loading){
+    if (loading) {
         return <Loading></Loading>
     }
     return (
         <div>
             <Navbar></Navbar>
-            <Outlet></Outlet>
+            <section className="min-h-[calc(100vh-292px)]">
+                <Outlet></Outlet>
+            </section>
+            <Footer></Footer>
         </div>
     );
 };
