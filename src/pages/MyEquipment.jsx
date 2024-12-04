@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import MyEquipCard from "../components/MyEquipCard";
@@ -6,9 +6,14 @@ import MyEquipCard from "../components/MyEquipCard";
 const MyEquipment = () => {
     const allData = useLoaderData()
     const { user } = useContext(AuthContext)
-    // console.log("user:-----" ,user.email, "dataaaa", allData)
-    const MyData = allData?.filter(data => data?.userEmail === user?.email)
-    console.log(MyData)
+    const [myData, setMyData] = useState([])
+
+    useEffect(() => {
+        const filterMyData = allData?.filter(data => data?.userEmail === user?.email)
+        setMyData(filterMyData)
+    }, [])
+
+
     return (
         <div className="container mx-auto px-5 md:px10 my-10">
             <div className="flex flex-col justify-center items-center gap-4">
@@ -18,9 +23,11 @@ const MyEquipment = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {
-                    MyData?.map((myEquipment, idx)=> <MyEquipCard
+                    myData?.map((myEquipment, idx) => <MyEquipCard
                         key={idx}
-                        myEquipment= {myEquipment}
+                        myEquipment={myEquipment}
+                        setMyData={setMyData}
+                        myData={myData}
                     ></MyEquipCard>)
                 }
             </div>

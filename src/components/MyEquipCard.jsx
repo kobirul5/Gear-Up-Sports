@@ -3,7 +3,7 @@ import { FaDeleteLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const MyEquipCard = ({ myEquipment }) => {
+const MyEquipCard = ({ myEquipment,myData, setMyData }) => {
     const { _id, itemName, categoryName, price, rating, customization, processingTime, stockStatus, photoUrl, userEmail, userName, description,
     } = myEquipment
 
@@ -33,6 +33,8 @@ const MyEquipCard = ({ myEquipment }) => {
                                 icon: "success"
                             });
                         }
+                        const remainingEquip = myData?.filter(data => data?._id !== _id)
+                        setMyData(remainingEquip)
                     })
             }
         });
