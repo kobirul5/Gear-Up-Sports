@@ -12,6 +12,7 @@ import EquipmentPrivate from "../privateRouter/EquipmentPrivate";
 import MyEquipment from "../pages/MyEquipment";
 import UpdateEquipment from "../pages/UpdateEquipment";
 import UpdateEquipPrivate from "../privateRouter/UpdateEquipPrivate";
+import MyEquipPrivate from "../privateRouter/MyEquipPrivate";
 
 const router = createBrowserRouter([
     {
@@ -42,7 +43,7 @@ const router = createBrowserRouter([
             },
             {
                 path:"/myEquipment",
-                element: <MyEquipment></MyEquipment>,
+                element: <MyEquipPrivate><MyEquipment></MyEquipment></MyEquipPrivate>,
                 loader: async ()=> fetch("http://localhost:4000/allEquipment")
             },
             {
