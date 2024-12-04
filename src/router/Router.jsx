@@ -8,6 +8,7 @@ import AddEquipment from "../pages/AddEquipment";
 import AddEquiPrivate from "../privateRouter/AddEquiPrivate";
 import AllEquipment from "../pages/AllEquipment";
 import EquipmentDetails from "../pages/EquipmentDetails";
+import EquipmentPrivate from "../privateRouter/EquipmentPrivate";
 
 const router = createBrowserRouter([
     {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
             },
             {
                 path:"/equipmentDetails/:id",
-                element: <EquipmentDetails></EquipmentDetails>,
+                element: <EquipmentPrivate><EquipmentDetails></EquipmentDetails></EquipmentPrivate>,
                 loader: async ({params})=> {
                  const res = await fetch("http://localhost:4000/allEquipment")
                   const allData = await res.json()
