@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import Banner from "../components/Banner";
 
 const Home = () => {
-    const {name} = useContext(AuthContext)
+    const {user} = useContext(AuthContext)
     return (
         <div>
-            <h2 className="text-5xl">{name}</h2>
+            <Banner></Banner>
         </div>
     );
 };
