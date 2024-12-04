@@ -4,7 +4,6 @@ import Swal from 'sweetalert2';
 
 const AddEquipment = () => {
     const { user } = useContext(AuthContext)
-    console.log(user)
 
     const handleAddEquipment = (e) => {
         e.preventDefault()
@@ -64,7 +63,7 @@ const AddEquipment = () => {
     return (
         <div className="flex justify-center items-center py-10 bg-gray-100">
             <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-3xl">
-                <h1 className="text-2xl font-bold text-center mb-2">Add New Item</h1>
+                <h1 className="text-2xl font-bold text-center mb-2">Add New Equipment</h1>
                 <p className="text-center text-gray-600 mb-6">
                     Fill out the details below to add a new item. Make sure to provide accurate information.
                 </p>

@@ -9,6 +9,7 @@ import AddEquiPrivate from "../privateRouter/AddEquiPrivate";
 import AllEquipment from "../pages/AllEquipment";
 import EquipmentDetails from "../pages/EquipmentDetails";
 import EquipmentPrivate from "../privateRouter/EquipmentPrivate";
+import MyEquipment from "../pages/MyEquipment";
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,11 @@ const router = createBrowserRouter([
                   const singleData = allData.find(data=> data._id === params.id)
                   return singleData
                 }
+            },
+            {
+                path:"/myEquipment",
+                element: <MyEquipment></MyEquipment>,
+                loader: async ()=> fetch("http://localhost:4000/allEquipment")
             }
         ]
     },
