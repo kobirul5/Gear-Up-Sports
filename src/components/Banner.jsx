@@ -1,5 +1,8 @@
 
 import BannerImage from "../assets/images/Banner.jpg"
+import BannerImage2 from "../assets/images/bannerimg1.jpg"
+import BannerImage3 from "../assets/images/bannerimg2.jpg"
+import BannerImage4 from "../assets/images/bannerimg3.jpg"
 import Heading from "./Heading";
 import { Swiper, SwiperSlide, } from "swiper/react";
 import 'swiper/css';
@@ -10,7 +13,7 @@ import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
 
 const Banner = () => {
     return (
-        <div>
+        <div className="mb-20">
             <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 spaceBetween={50}
@@ -43,7 +46,7 @@ const Banner = () => {
                     <div
                         className="hero min-h-screen"
                         style={{
-                            backgroundImage: `url(${BannerImage})`,
+                            backgroundImage: `url(${BannerImage2})`,
                         }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-neutral-content text-center">
@@ -61,7 +64,7 @@ const Banner = () => {
                     <div
                         className="hero min-h-screen"
                         style={{
-                            backgroundImage: `url(${BannerImage})`,
+                            backgroundImage: `url(${BannerImage3})`,
                         }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-neutral-content text-center">
@@ -79,7 +82,7 @@ const Banner = () => {
                     <div
                         className="hero min-h-screen"
                         style={{
-                            backgroundImage: `url(${BannerImage})`,
+                            backgroundImage: `url(${BannerImage4})`,
                         }}>
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-neutral-content text-center">
@@ -93,8 +96,7 @@ const Banner = () => {
                         </div>
                     </div>
                 </SwiperSlide>
-
-                ...
+                
             </Swiper>
         </div>
     );
