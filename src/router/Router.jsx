@@ -7,6 +7,7 @@ import AuthPage from "../pages/AuthPage";
 import AddEquipment from "../pages/AddEquipment";
 import AddEquiPrivate from "../privateRouter/AddEquiPrivate";
 import AllEquipment from "../pages/AllEquipment";
+import EquipmentDetails from "../pages/EquipmentDetails";
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,16 @@ const router = createBrowserRouter([
             {
                 path:'/allEquipment',
                 element: <AllEquipment></AllEquipment>
+            },
+            {
+                path:"/equipmentDetails/:id",
+                element: <EquipmentDetails></EquipmentDetails>,
+                loader: async ({params})=> {
+                 const res = await fetch("http://localhost:4000/allEquipment")
+                  const allData = await res.json()
+                  const singleData = allData.find(data=> data._id === params.id)
+                  return singleData
+                }
             }
         ]
     },

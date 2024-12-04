@@ -9,7 +9,6 @@ const AllEquipment = () => {
         .then(res=>res.json())
         .then(data=>setEquipments(data))
     },[])
-    console.log(equipments)
     return (
         <div className="container mx-auto px-5 md:px-10 my-12">
           

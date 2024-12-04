@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 
 const EquipmentCard = ({equipment}) => {
-    const{itemName, categoryName, price, rating, customization, processingTime, stockStatus, photoUrl, userEmail, userName, description, } = equipment
+    const{_id, itemName, categoryName, price, rating, customization, processingTime, stockStatus, photoUrl,description, } = equipment
     return (
         <div className="card bg-base-100 shadow-xl">
             <figure className="px-10 pt-10">
                 <img
                     src={photoUrl}
-                    alt="Shoes"
+                    alt={itemName}
                     className="rounded-xl" />
             </figure>
             <div className="card-body">
@@ -17,7 +18,7 @@ const EquipmentCard = ({equipment}) => {
                 </div>
                 <p><span className="font-bold">Description</span> {description}</p>
                 <div className="card-actions">
-                    <button className="btn btn-primary">View Details</button>
+                    <Link to={`/equipmentDetails/${_id}`} className="btn btn-primary">View Details</Link>
                 </div>
             </div>
         </div>
