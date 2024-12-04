@@ -14,15 +14,18 @@ import UpdateEquipment from "../pages/UpdateEquipment";
 import UpdateEquipPrivate from "../privateRouter/UpdateEquipPrivate";
 import MyEquipPrivate from "../privateRouter/MyEquipPrivate";
 import AllEquipCard from "../components/AllEquipCard";
+import ErrorPage from "../pages/ErroorPage";
 
 const router = createBrowserRouter([
     {
         path:'/',
         element:<MainLayout></MainLayout>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
                 element: <Home></Home>,
+                loader: ()=> fetch("http://localhost:4000/allEquipment"),
                 children: [
                     {
                         path: '/',

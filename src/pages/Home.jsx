@@ -7,6 +7,7 @@ import { Outlet, useLoaderData } from "react-router-dom";
 const Home = () => {
     const {user} = useContext(AuthContext)
     const allData = useLoaderData()
+    console.log(allData)
     const [allEquipment, setAllEquipment] = useState()
     return (
         <div>
@@ -17,8 +18,13 @@ const Home = () => {
                 ></Heading>
                 <div className="grid grid-cols-12 gap-5 container mx-auto px-5 md:px-10">
                     {/* category */}
-                    <div className="col-span-3">
+                    <div className="col-span-3 flex flex-col">
                         <button className="btn">all Product</button>
+                        {
+                            allData?.map(data=><button key={data._id} className="btn">
+                                {data.categoryName}
+                            </button>)
+                        }
                     </div>
                     {/* Products */}
                     <div className="col-span-9 ">
