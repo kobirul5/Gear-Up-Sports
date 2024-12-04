@@ -21,7 +21,7 @@ const MyEquipCard = ({ myEquipment }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 fetch(`http://localhost:4000/allEquipment/${_id}`, {
-                    method:"DELETE"
+                    method: "DELETE"
                 })
                     .then(res => res.json())
                     .then(data => {
@@ -29,7 +29,7 @@ const MyEquipCard = ({ myEquipment }) => {
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your file has been deleted.",
+                                text: "Your Equipment has been deleted.",
                                 icon: "success"
                             });
                         }
@@ -55,7 +55,9 @@ const MyEquipCard = ({ myEquipment }) => {
                         <Link to={`/equipmentDetails/${_id}`}>
                             <FaEye></FaEye>
                         </Link>
-                        <FaEdit></FaEdit>
+                        <Link to={`/updateEquipment/${_id}`}>
+                            <FaEdit></FaEdit>
+                        </Link>
                         <button onClick={() => handleADeleteEquipment(_id)}>
                             <FaTrash></FaTrash>
                         </button>

@@ -1,11 +1,17 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../provider/AuthProvider';
-import Swal from 'sweetalert2';
+import { useContext } from "react";
+import { AuthContext } from "../provider/AuthProvider";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
-const AddEquipment = () => {
-    const { user } = useContext(AuthContext)
+const UpdateEquipment = () => {
+    const {user} = useContext(AuthContext)
+    const equipmentData = useLoaderData()
 
-    const handleAddEquipment = (e) => {
+    const { _id, itemName, categoryName, price, rating, customization, processingTime, stockStatus, photoUrl, userEmail, userName, description,
+    } = equipmentData
+
+    const handleUpdateEquipment = (e) =>{
+
         e.preventDefault()
 
         const form = e.target
@@ -21,58 +27,44 @@ const AddEquipment = () => {
         const userName=form.userName.value
         const description=form.description.value
 
-        const sportsEquipment = {
-            itemName,
-            categoryName,
-            price,
-            rating,
-            customization,
-            processingTime,
-            stockStatus,
-            photoUrl,
-            userEmail,
-            userName,
-            description,
-        }
-            // console.log(items)
+        const updatedEquipment = { itemName, categoryName, price, rating, customization, processingTime, stockStatus, photoUrl, userEmail, userName, description,}
 
-        fetch("http://localhost:4000/allEquipment", {
-            method: "POST",
+        fetch(`http://localhost:4000/allEquipment/${_id}`, {
+            method: "PUT",
             headers:{
                 "content-type": "application/json"
             },
-            body: JSON.stringify(sportsEquipment)
+            body: JSON.stringify(updatedEquipment)
         })
         .then(res=> res.json())
         .then(data=>{
             console.log(data)
-            if(data.insertedId){
+            if(data.modifiedCount){
                 Swal.fire({
                     title: 'successful!',
-                    text: 'Added Equipment Successfully',
+                    text: 'Updated Equipment Successfully',
                     icon: 'success',
                     confirmButtonText: 'close'
                   })
                 }
         })
 
-
     }
-
 
     return (
         <div className="flex justify-center items-center py-10 bg-gray-100">
             <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-3xl">
-                <h1 className="text-2xl font-bold text-center mb-2">Add New Equipment</h1>
+                <h1 className="text-2xl font-bold text-center mb-2">Update New Equipment</h1>
                 <p className="text-center text-gray-600 mb-6">
                     Fill out the details below to add a new item. Make sure to provide accurate information.
                 </p>
-                <form onSubmit={handleAddEquipment} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <form onSubmit={handleUpdateEquipment} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* Item Name */}
                     <div>
                         <label className="block text-sm font-medium mb-1">Item Name</label>
                         <input
-                            type="text"
+                            type="text" 
+                            defaultValue={itemName}
                             placeholder="Enter item name"
                             className="input input-bordered w-full"
                             name="itemName"
@@ -87,6 +79,7 @@ const AddEquipment = () => {
                             placeholder="Enter category name"
                             className="input input-bordered w-full"
                             name="categoryName"
+                            defaultValue={categoryName}
                         />
                     </div>
 
@@ -98,6 +91,7 @@ const AddEquipment = () => {
                             placeholder="Enter price"
                             className="input input-bordered w-full"
                             name="price"
+                            defaultValue={price}
                         />
                     </div>
 
@@ -111,6 +105,7 @@ const AddEquipment = () => {
                             placeholder="Enter rating (out of 5)"
                             className="input input-bordered w-full"
                             name="rating"
+                            defaultValue={rating}
                         />
                     </div>
 
@@ -122,6 +117,7 @@ const AddEquipment = () => {
                             placeholder="Enter customization details"
                             className="input input-bordered w-full"
                             name="customization"
+                            defaultValue={customization}
                         />
                     </div>
 
@@ -133,6 +129,7 @@ const AddEquipment = () => {
                             placeholder="Enter processing/delivery time"
                             className="input input-bordered w-full"
                             name="processingTime"
+                            defaultValue={processingTime}
                         />
                     </div>
 
@@ -144,6 +141,7 @@ const AddEquipment = () => {
                             placeholder="Enter available quantity"
                             className="input input-bordered w-full"
                             name="stockStatus"
+                            defaultValue={stockStatus}
                         />
                     </div>
 
@@ -155,6 +153,7 @@ const AddEquipment = () => {
                             placeholder="Enter Photo URL"
                             className="input input-bordered w-full"
                             name="photoUrl"
+                            defaultValue={photoUrl}
                         />
                     </div>
 
@@ -167,6 +166,7 @@ const AddEquipment = () => {
                             placeholder="Enter user email"
                             className="input input-bordered w-full"
                             name="userEmail"
+                            
                         />
                     </div>
 
@@ -189,6 +189,7 @@ const AddEquipment = () => {
                             placeholder="Enter item description"
                             className="textarea textarea-bordered w-full"
                             name="description"
+                            defaultValue={description}
                         ></textarea>
                     </div>
 
@@ -202,7 +203,6 @@ const AddEquipment = () => {
             </div>
         </div>
     );
-}
+};
 
-
-export default AddEquipment;
+export default UpdateEquipment;

@@ -10,6 +10,7 @@ import AllEquipment from "../pages/AllEquipment";
 import EquipmentDetails from "../pages/EquipmentDetails";
 import EquipmentPrivate from "../privateRouter/EquipmentPrivate";
 import MyEquipment from "../pages/MyEquipment";
+import UpdateEquipment from "../pages/UpdateEquipment";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,11 @@ const router = createBrowserRouter([
                 path:"/myEquipment",
                 element: <MyEquipment></MyEquipment>,
                 loader: async ()=> fetch("http://localhost:4000/allEquipment")
+            },
+            {
+                path:"/updateEquipment/:id",
+                element:<UpdateEquipment></UpdateEquipment>,
+                loader: ({params})=>fetch(`http://localhost:4000/allEquipment/${params.id}`)
             }
         ]
     },
