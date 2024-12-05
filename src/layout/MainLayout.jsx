@@ -12,8 +12,8 @@ const MainLayout = () => {
         return <Loading></Loading>
     }
     return (
-        <div className="mx-auto pt-3">
-            <nav className="md:mx-5 mb-3">
+        <div className="mx-auto">
+            <nav className="">
 
                 <Navbar></Navbar>
             </nav>

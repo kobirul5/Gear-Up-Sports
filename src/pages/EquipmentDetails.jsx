@@ -14,12 +14,12 @@ const EquipmentDetails = () => {
         return <Loading></Loading>
     }
     return (
-        <div className="hero bg-base-200 my-12">
-            <div className="hero-content flex-col lg:flex-row">
+        <div className="hero my-12 md:px-10">
+            <div className="hero-content flex-col lg:flex-row gap-20">
                 <img
                     src={photoUrl}
-                    className="max-w-sm rounded-lg shadow-2xl" />
-                <div>
+                    className="h-[500px] md:w-1/2 object-cover rounded-lg shadow-2xl" />
+                <div className="md:w-1/2 space-y-2">
                     <h1 className="text-3xl font-bold mb-4">{itemName}</h1>
                     <p className="btn border rounded-3xl border-green-300">Stock:{stockStatus}</p>
                     <p className="">Price: ${price}</p>

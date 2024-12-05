@@ -1,11 +1,12 @@
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateEquipment = () => {
     const {user} = useContext(AuthContext)
     const equipmentData = useLoaderData()
+    const navigate = useNavigate()
 
     const { _id, itemName, categoryName, price, rating, customization, processingTime, stockStatus, photoUrl, userEmail, userName, description,
     } = equipmentData
@@ -38,7 +39,6 @@ const UpdateEquipment = () => {
         })
         .then(res=> res.json())
         .then(data=>{
-            console.log(data)
             if(data.modifiedCount){
                 Swal.fire({
                     title: 'successful!',
@@ -47,6 +47,7 @@ const UpdateEquipment = () => {
                     confirmButtonText: 'close'
                   })
                 }
+                navigate(`/equipmentDetails/${_id}`)
         })
 
     }
@@ -56,7 +57,7 @@ const UpdateEquipment = () => {
             <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-3xl">
                 <h1 className="text-2xl font-bold text-center mb-2">Update New Equipment</h1>
                 <p className="text-center text-gray-600 mb-6">
-                    Fill out the details below to add a new item. Make sure to provide accurate information.
+                    Fill out the details below to Updated what you Want. Make sure to provide accurate information.
                 </p>
                 <form onSubmit={handleUpdateEquipment} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {/* Item Name */}
@@ -196,7 +197,7 @@ const UpdateEquipment = () => {
                     {/* Submit Button */}
                     <div className="md:col-span-2 text-center">
                         <button type="submit" className="btn btn-primary w-full">
-                            Add Item
+                            Updated Equipment
                         </button>
                     </div>
                 </form>

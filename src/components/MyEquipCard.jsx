@@ -3,7 +3,7 @@ import { FaDeleteLeft } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const MyEquipCard = ({ myEquipment,myData, setMyData }) => {
+const MyEquipCard = ({ myEquipment, myData, setMyData }) => {
     const { _id, itemName, categoryName, price, rating, customization, processingTime, stockStatus, photoUrl, userEmail, userName, description,
     } = myEquipment
 
@@ -41,14 +41,16 @@ const MyEquipCard = ({ myEquipment,myData, setMyData }) => {
     }
 
     return (
-        <div className="hero">
+        <div className="hero border">
             <div className="hero-content flex-col lg:flex-row">
-                <img
-                    src={photoUrl}
-                    className="max-w-sm rounded-lg shadow-2xl" />
+                <div className="w-full md:w-[300px]">
+                    <img
+                        src={photoUrl}
+                        className="max-w-sm h-[200px] w-[250px] object-cover rounded-lg shadow-2xl" />
+                </div>
                 <div className="flex justify-between gap-10">
                     <div>
-                        <h1 className="md:text-5xl text-3xl font-bold">{itemName}</h1>
+                        <h1 className="text-2xl md:text-3xl  font-bold">{itemName}</h1>
                         <p className="py-3"><span className="font-semibold">Description: </span>{description}</p>
                         <p className=""><span className="font-semibold">Price: </span>$ {price}</p>
 

@@ -61,8 +61,8 @@ const AddEquipment = () => {
 
 
     return (
-        <div className="flex justify-center items-center py-10 bg-gray-100">
-            <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-3xl">
+        <div className="flex justify-center items-center py-10">
+            <div className=" shadow-lg rounded-lg p-8 w-full max-w-3xl border">
                 <h1 className="text-2xl font-bold text-center mb-2">Add New Equipment</h1>
                 <p className="text-center text-gray-600 mb-6">
                     Fill out the details below to add a new item. Make sure to provide accurate information.
@@ -96,6 +96,7 @@ const AddEquipment = () => {
                         <input
                             type="number"
                             placeholder="Enter price"
+                            step="any"
                             className="input input-bordered w-full"
                             name="price"
                         />

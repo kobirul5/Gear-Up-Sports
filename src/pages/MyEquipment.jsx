@@ -21,7 +21,7 @@ const MyEquipment = () => {
                 <Link to="/addEquipment" className="btn rounded-3xl">Add More Equipment</Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">
                 {
                     myData?.map((myEquipment, idx) => <MyEquipCard
                         key={idx}

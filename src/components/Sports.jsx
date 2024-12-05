@@ -4,10 +4,10 @@ import AmericanFootball from '../assets/images/AmericanFootball.jpg'
 import Cricket from '../assets/images/cricket.jpg'
 const Sports = () => {
     const categories = [
-        { name: "Football", image: Basketball, tag: "Popular" },
-        { name: "Basketball", image: Football },
-        { name: "Tennis", image: AmericanFootball },
-        { name: "Swimming", image: Cricket },
+        { name: "Basketball", image: Basketball, tag: "Popular" },
+        { name: "Football", image: Football },
+        { name: "American Football", image: AmericanFootball },
+        { name: "Cricket", image: Cricket },
     ];
 
     return (
