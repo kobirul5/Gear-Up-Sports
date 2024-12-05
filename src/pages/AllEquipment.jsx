@@ -9,8 +9,15 @@ const AllEquipment = () => {
             .then(res => res.json())
             .then(data => setEquipments(data))
     }, [])
+    const handleSort = ()=>{
+        const sortIEquipment = [...equipments].sort((a,b)=> a.price - b.price)
+        setEquipments(sortIEquipment)
+    } 
     return (
         <div className="container mx-auto px-5 md:px-10 my-12">
+            <dir className="flex justify-end">
+                <button onClick={handleSort} className="btn">Sort By Price</button>
+            </dir>
 
             <div className="overflow-x-auto">
                 <table className="table">
@@ -32,7 +39,7 @@ const AllEquipment = () => {
                                 "No Data found"
                                 :
 
-                                equipments?.map((equipment, idx) => <tr>
+                                equipments?.map((equipment, idx) => <tr key={idx}>
                                     <th>{idx+1}</th>
                                     <td>{equipment.itemName}</td>
                                     <td>{equipment.categoryName}</td>

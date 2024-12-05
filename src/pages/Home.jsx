@@ -1,29 +1,38 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Banner from "../components/Banner";
 import Heading from "../components/Heading";
-import { Outlet, useLoaderData } from "react-router-dom";
+import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
 
 const Home = () => {
-    const {user} = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
     const allData = useLoaderData()
-    console.log(allData)
     const [allEquipment, setAllEquipment] = useState()
+    useEffect(() => {
+        const uniqueCategories = [...new Set(allData?.map(item => item.categoryName))];
+        setAllEquipment(uniqueCategories)
+    }, [])
+    // console.log(allEquipment)
     return (
         <div>
             <Banner></Banner>
             <section>
                 <Heading title={"Explore Our Collection"}
-                subtitle={"Top-Quality Sports Products to Elevate Your Game"}
+                    subtitle={"Top-Quality Sports Products to Elevate Your Game"}
                 ></Heading>
-                <div className="grid grid-cols-12 gap-5 container mx-auto px-5 md:px-10">
+                <div className="grid grid-cols-12 gap-5 container my-12 mx-auto px-5 md:px-10">
                     {/* category */}
-                    <div className="col-span-3 flex flex-col">
-                        <button className="btn">all Product</button>
+                    <div className="col-span-3 flex flex-col bg-white p-5 rounded-3xl gap-3">
+                        <NavLink to={`/category/allEquip`} className="w-full btn"><button>All Product</button></NavLink>
                         {
-                            allData?.map(data=><button key={data._id} className="btn">
-                                {data.categoryName}
-                            </button>)
+                            allEquipment?.map((data, idx)=> <NavLink 
+                            state={data}
+                            key={idx}
+                            className="w-full btn"
+                            to={`/category/${data}`} 
+                            ><button >
+                            {data}
+                        </button></NavLink>)
                         }
                     </div>
                     {/* Products */}

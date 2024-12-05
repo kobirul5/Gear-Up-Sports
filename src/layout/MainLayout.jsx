@@ -12,8 +12,11 @@ const MainLayout = () => {
         return <Loading></Loading>
     }
     return (
-        <div>
-            <Navbar></Navbar>
+        <div className="mx-auto pt-3">
+            <nav className="mx-5 mb-3">
+
+                <Navbar></Navbar>
+            </nav>
             <section className="min-h-[calc(100vh-292px)]">
                 <Outlet></Outlet>
             </section>
