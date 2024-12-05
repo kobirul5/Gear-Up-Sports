@@ -4,6 +4,7 @@ import Banner from "../components/Banner";
 import Heading from "../components/Heading";
 import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
 import Sports from "../components/Sports";
+import NewsLetter from "../components/NewsLetter";
 
 const Home = () => {
     const { user } = useContext(AuthContext)
@@ -23,7 +24,7 @@ const Home = () => {
                 ></Heading>
                 <div className="grid grid-cols-12 gap-5 container my-12 mx-auto px-5 md:px-10">
                     {/* category */}
-                    <div className="col-span-3 flex flex-col bg-white dark:bg-[#161718] p-5 rounded-3xl gap-3">
+                    <div className="col-span-3 flex flex-col border dark:bg-[#161718] p-5 rounded-3xl gap-3">
                         <NavLink to={`/category/allEquip`} className="w-full btn"><button>All Product</button></NavLink>
                         {
                             allEquipment?.map((data, idx) => <NavLink
@@ -45,6 +46,7 @@ const Home = () => {
             </section>
             <section className="container mx-auto px-5 md:px-10 my-12">
                 <Sports></Sports>
+                <NewsLetter></NewsLetter>
             </section>
         </div>
     );

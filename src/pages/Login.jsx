@@ -36,8 +36,12 @@ const Login = () => {
           });
 
     }
-
-
+    const handleGoogleLogin=()=>{
+        handleGoogle()
+        setTimeout(() => {
+            navigate("/")
+        }, 3000);
+    }
     return (
         <div className="hero bg-base-200 min-h-screen">
             <div className="hero-content flex-col lg:w-1/2">
@@ -66,7 +70,7 @@ const Login = () => {
                         </div>
                     </form>
                     <div className="flex flex-col justify-center px-8 text-center gap-2">
-                        <button onClick={handleGoogle} className="flex gap-2 border p-2">
+                        <button onClick={handleGoogleLogin} className="flex gap-2 border p-2">
                             <img className="w-6" src={GoogleIcon} alt="" />
                             <p>Continue With Google</p>
                         </button>

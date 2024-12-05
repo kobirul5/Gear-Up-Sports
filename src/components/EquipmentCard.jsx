@@ -12,10 +12,8 @@ const EquipmentCard = ({ equipment }) => {
             </figure>
             <div className="card-body p-5">
                 <h2 className="card-title">{itemName}</h2>
-                <div className="flex justify-between">
-                    <p>Category: {categoryName}</p>
-                    <p>price: {price}</p>
-                </div>
+                    <p> <span className="font-bold">Category:</span> {categoryName}</p>
+                    <p><span className="font-bold">Price:</span> {price}</p>
                 <p><span className="font-bold">Description</span> {description}</p>
                 <div className="card-actions">
                     <Link to={`/equipmentDetails/${_id}`} className="btn btn-primary">View Details</Link>

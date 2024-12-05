@@ -14,7 +14,7 @@ const EquipmentDetails = () => {
         return <Loading></Loading>
     }
     return (
-        <div className="hero my-12 md:px-10">
+        <div className="hero my-12  md:px-10">
             <div className="hero-content flex-col lg:flex-row gap-20">
                 <img
                     src={photoUrl}
