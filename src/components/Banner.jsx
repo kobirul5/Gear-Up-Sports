@@ -31,7 +31,7 @@ const Banner = () => {
                             backgroundImage: `url(${BannerImage})`,
                         }}>
                         <div className="hero-overlay bg-opacity-60"></div>
-                        <div className="hero-content text-neutral-content text-center">
+                        <div className="hero-content text-white text-center">
                             <div className="max-w-xl px-5">
                                 <Heading
                                     title={"Game On - Your Sports Gear Marketplace"}

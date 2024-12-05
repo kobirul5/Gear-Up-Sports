@@ -25,12 +25,12 @@ const Navbar = () => {
         <div className="navbar bg-base-100 rounded-3xl container mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                    <div tabIndex={0} role="button" className="btn btn-ghost px-0 lg:hidden">
                         <FaBars></FaBars>
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-white rounded-box z-[1] mt-3 w-52 p-2 shadow gap-3">
+                        className="menu menu-sm dropdown-content bg-gray-600 text-white rounded-box z-[1] mt-3 w-52 p-2 shadow gap-3">
                         <li><NavLink to="/">Home</NavLink></li>
                         <li><NavLink to="/allEquipment">All Sports Equipment</NavLink></li>
                         <li><NavLink to="/addEquipment">Add Equipment</NavLink></li>
@@ -56,7 +56,7 @@ const Navbar = () => {
                         </div>
                         :
                         <div className='flex justify-center gap-3 items-center'>
-                            <NavLink to="/auth/signUp" className="btn">Sign UP</NavLink>
+                            <NavLink to="/auth/signUp" className="btn hidden md:flex">Sign UP</NavLink>
                             <NavLink to="/auth/login" className="btn">Login</NavLink>
                         </div>
                 }

@@ -13,7 +13,7 @@ const MainLayout = () => {
     }
     return (
         <div className="mx-auto pt-3">
-            <nav className="mx-5 mb-3">
+            <nav className="md:mx-5 mb-3">
 
                 <Navbar></Navbar>
             </nav>
