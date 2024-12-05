@@ -5,6 +5,7 @@ import Heading from "../components/Heading";
 import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
 import Sports from "../components/Sports";
 import NewsLetter from "../components/NewsLetter";
+import Benefits from "../components/Benefits";
 
 const Home = () => {
     const { user } = useContext(AuthContext)
@@ -18,6 +19,9 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <div className="container mx-auto px-5 md:px-10 my-12 pb-10 border-b-2">
+                <Benefits></Benefits>
+            </div>
             <section>
                 <Heading title={"Explore Our Collection"}
                     subtitle={"Top-Quality Sports Products to Elevate Your Game"}
@@ -45,8 +49,10 @@ const Home = () => {
                 </div>
             </section>
             <section className="container mx-auto px-5 md:px-10 my-12">
+
                 <Sports></Sports>
                 <NewsLetter></NewsLetter>
+
             </section>
         </div>
     );
