@@ -9,7 +9,7 @@ export default {
       colors: {
         'primary': '#FF851B',
         'secondary': '#F9F9F9',
-        'btn-color': '#3D9970',
+        'btn-color': '#FF8036',
         'dark': '#090E08',
       },
     },

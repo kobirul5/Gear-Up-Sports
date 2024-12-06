@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const AllEquipment = () => {
     const [equipments, setEquipments] = useState([])
+    const location = useLocation()
 
     useEffect(() => {
         fetch("http://localhost:4000/allEquipment")
@@ -16,7 +17,7 @@ const AllEquipment = () => {
     return (
         <div className="container mx-auto px-5 md:px-10 my-12">
             <dir className="flex justify-end">
-                <button onClick={handleSort} className="btn">Sort By Price</button>
+                <button onClick={handleSort} className="btn bg-[#ff851b77] border border-primary hover:bg-primary">Sort By Price</button>
             </dir>
 
             <div className="overflow-x-auto">
@@ -45,7 +46,10 @@ const AllEquipment = () => {
                                     <td>{equipment.categoryName}</td>
                                     <td>${equipment.price}</td>
                                     <td>{equipment.stockStatus}</td>
-                                    <td><Link to={`/equipmentDetails/${equipment._id}`} className="btn">View Details</Link></td>
+                                    <td><Link 
+                                    to={`/equipmentDetails/${equipment._id}`} className="btn bg-[#ff851b77] border border-primary hover:bg-primary"
+
+                                    >View Details</Link></td>
                                 </tr>)
 
                         }

@@ -28,13 +28,19 @@ const Home = () => {
                 ></Heading>
                 <div className="grid grid-cols-12 gap-5 container my-12 mx-auto px-5 md:px-10">
                     {/* category */}
-                    <div className="col-span-3 flex flex-col border dark:bg-[#161718] p-5 rounded-3xl gap-3">
-                        <NavLink to={`/category/allEquip`} className="w-full btn"><button>All Product</button></NavLink>
+                    <div 
+                    className="col-span-12 md:col-span-3 flex flex-col border p-5 rounded-3xl gap-3">
+                        
+                        <NavLink 
+                        to={`/category/allEquip`} 
+                        className="w-full btn bg-[#ff92527e] hover:bg-btn-color border-btn-color hover:border-btn-color"
+                        ><button>All Product</button>
+                        </NavLink>
                         {
                             allEquipment?.map((data, idx) => <NavLink
                                 state={data}
                                 key={idx}
-                                className="w-full btn"
+                                className="w-full btn bg-[#ff92527e] hover:bg-btn-color border-btn-color hover:border-btn-color"
                                 to={`/category/${data}`}
                             ><button >
                                     {data}
@@ -42,7 +48,7 @@ const Home = () => {
                         }
                     </div>
                     {/* Products */}
-                    <div className="col-span-9 ">
+                    <div className=" col-span-12 md:col-span-9 ">
                         <Outlet></Outlet>
                     </div>
 

@@ -164,7 +164,8 @@ const AddEquipment = () => {
                         <label className="block text-sm font-medium mb-1">User Email</label>
                         <input
                             type="email"
-                            defaultValue={`${user?.email}`}
+                            // defaultValue={`${user?.email}`}
+                            value={`${user?.email}`} readOnly
                             placeholder="Enter user email"
                             className="input input-bordered w-full"
                             name="userEmail"
@@ -176,7 +177,7 @@ const AddEquipment = () => {
                         <label className="block text-sm font-medium mb-1">User Name</label>
                         <input
                             type="text"
-                            defaultValue={`${user?.displayName}`}
+                            value={`${user?.displayName}`} readOnly
                             placeholder="Enter user name"
                             className="input input-bordered w-full"
                             name="userName"
@@ -195,7 +196,7 @@ const AddEquipment = () => {
 
                     {/* Submit Button */}
                     <div className="md:col-span-2 text-center">
-                        <button type="submit" className="btn btn-primary w-full">
+                        <button type="submit" className="btn bg-[#ff851b77] border border-primary hover:bg-primary w-full">
                             Add Item
                         </button>
                     </div>

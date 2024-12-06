@@ -7,3 +7,10 @@ body{
         font-weight: 400;
         font-style: normal;
 }
+.btn{
+        border-radius: 5px;
+}
+#news-btn{
+        border-top-left-radius: 0px;
+        border-bottom-left-radius: 0px;
+}

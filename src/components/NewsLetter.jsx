@@ -19,8 +19,8 @@ const NewsLetter = () => {
                 <input
                     type="text"
                     placeholder="Email"
-                    className="input input-bordered rounded-r-none w-full max-w-xs" />
-                    <button className="btn rounded-l-none bg-blue-400">Submit</button>
+                    className="input input-bordered rounded-r-none w-full text-dark max-w-xs" />
+                    <button id="news-btn" className="btn rounded-l-none bg-blue-400">Submit</button>
             </div>
         </div>
     );

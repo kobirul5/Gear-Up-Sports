@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const EquipmentCard = ({ equipment }) => {
     const { _id, itemName, categoryName, price, rating, customization, processingTime, stockStatus, photoUrl, description, } = equipment
     return (
-        <div className="card bg-base-100 shadow-xl border">
+        <div className="card bg-base-100 shadow-xl border rounded-2xl">
             <figure className="px-5 pt-5">
                 <img
                     src={photoUrl}
@@ -16,7 +16,7 @@ const EquipmentCard = ({ equipment }) => {
                     <p><span className="font-bold">Price:</span> {price}</p>
                 <p><span className="font-bold">Description</span> {description}</p>
                 <div className="card-actions">
-                    <Link to={`/equipmentDetails/${_id}`} className="btn btn-primary">View Details</Link>
+                    <Link to={`/equipmentDetails/${_id}`} className="btn text-dark bg-[#ff92527e] hover:bg-btn-color border-btn-color hover:border-btn-color hover:text-secondary ">View Details</Link>
                 </div>
             </div>
         </div>

@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Loading from "../components/Loading";
 import Footer from "../components/Footer";
+import FooterImg from "../assets/WorldMap.svg"
 
 const MainLayout = () => {
     const { loading, theme } = useContext(AuthContext)
@@ -13,7 +14,7 @@ const MainLayout = () => {
     }
 
     return (
-        <div className={`mx-auto ${theme === "light"? "text-dark":"text-secondary"}`}>
+        <div className={`mx-auto ${theme === "light" ? "text-dark" : "text-secondary"}`}>
             <nav className="">
 
                 <Navbar></Navbar>
@@ -21,7 +22,14 @@ const MainLayout = () => {
             <section className="min-h-[calc(100vh-292px)]">
                 <Outlet></Outlet>
             </section>
-            <Footer></Footer>
+            <section
+            style={{
+                backgroundImage: `url(${FooterImg})`,
+            }}
+            >
+
+                <Footer></Footer>
+            </section>
         </div>
     );
 };

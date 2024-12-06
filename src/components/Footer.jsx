@@ -1,33 +1,35 @@
 import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
     return (
-        <footer className="footer bg-base-300 text-base-content p-10">
+        <footer
+            className="footer mx-auto text-primary p-10 container">
             <nav>
-                <h6 className="footer-title">Services</h6>
-                <a className="link link-hover">Branding</a>
-                <a className="link link-hover">Design</a>
-                <a className="link link-hover">Marketing</a>
-                <a className="link link-hover">Advertisement</a>
+                <h6 className="text-3xl font-bold">GearUp Sports</h6>
+                <a className="link link-hover">About Us</a>
+                <p className="max-w-[350px]">Welcome to GearUp Spots, your ultimate destination for high-quality sports gear and apparel. We are passionate about helping athletes and enthusiasts reach their full potential with the best products and seamless shopping experience</p>
             </nav>
-            <nav>
+            <nav >
                 <h6 className="footer-title">Company</h6>
-                <a className="link link-hover">About us</a>
-                <a className="link link-hover">Contact</a>
-                <a className="link link-hover">Jobs</a>
-                <a className="link link-hover">Press kit</a>
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/allEquipment">All Sports Equipment</NavLink>
+                    <NavLink to="/addEquipment">Add Equipment</NavLink>
+                    <NavLink to="/myEquipment">My Equipment List</NavLink>
+                    <a>Contact Us</a>
+
             </nav>
             <nav>
                 <h6 className="footer-title">Social</h6>
-                <div className="grid grid-flow-col gap-4">
-                    <a>
+                <div className="grid grid-flow-col gap-4 text-3xl">
+                    <a className="text-cyan-700">
                         <FaTwitter></FaTwitter>
                     </a>
-                    <a>
+                    <a className="text-blue-700">
                         <FaFacebook></FaFacebook>
                     </a>
-                    <a>
-                        <FaYoutube/>
+                    <a className="text-red-700">
+                        <FaYoutube />
                     </a>
                 </div>
             </nav>

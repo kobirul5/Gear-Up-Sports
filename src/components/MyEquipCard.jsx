@@ -42,11 +42,11 @@ const MyEquipCard = ({ myEquipment, myData, setMyData }) => {
 
     return (
         <div className="hero border">
-            <div className="hero-content flex-col lg:flex-row">
+            <div className="hero-content flex-col xl:flex-row">
                 <div className="w-full md:w-[300px]">
                     <img
                         src={photoUrl}
-                        className="max-w-sm h-[200px] w-[250px] object-cover rounded-lg shadow-2xl" />
+                        className="max-w-sm h-[250px]  xl:h-[200px] w-full xl:w-[250px] object-cover rounded-lg shadow-2xl" />
                 </div>
                 <div className="flex justify-between gap-10">
                     <div>
@@ -55,14 +55,16 @@ const MyEquipCard = ({ myEquipment, myData, setMyData }) => {
                         <p className=""><span className="font-semibold">Price: </span>$ {price}</p>
 
                     </div>
-                    <div className="flex flex-col justify-center gap-4 text-2xl">
+                    <div className="flex flex-col justify-center gap-4 text-2xl text-primary">
                         <Link to={`/equipmentDetails/${_id}`}>
                             <FaEye></FaEye>
                         </Link>
                         <Link to={`/updateEquipment/${_id}`}>
                             <FaEdit></FaEdit>
                         </Link>
-                        <button onClick={() => handleADeleteEquipment(_id)}>
+                        <button 
+                        className="text-red-600"
+                        onClick={() => handleADeleteEquipment(_id)} >
                             <FaTrash></FaTrash>
                         </button>
                     </div>

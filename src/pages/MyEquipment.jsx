@@ -18,7 +18,7 @@ const MyEquipment = () => {
         <div className="container mx-auto px-5 md:px10 my-10">
             <div className="flex flex-col justify-center items-center gap-4">
                 <h1 className="text-3xl md:5xl font-bold">My Equipment List</h1>
-                <Link to="/addEquipment" className="btn rounded-3xl">Add More Equipment</Link>
+                <Link to="/addEquipment" className="btn bg-[#ff851b77] border border-primary hover:bg-primary">Add More Equipment</Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-10">

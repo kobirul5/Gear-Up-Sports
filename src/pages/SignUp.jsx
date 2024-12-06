@@ -85,7 +85,7 @@ console.log(user)
                             <input type="password" placeholder="password" name="password" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Sign Up</button>
+                            <button className="btn bg-[#ff92527e] hover:bg-btn-color border-btn-color hover:border-btn-color hover:text-secondary">Sign Up</button>
                         </div>
                     </form>
                     <label className="label">

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import GoogleIcon from "../assets/icons/google.png";
 import Swal from "sweetalert2";
@@ -7,6 +7,9 @@ import Swal from "sweetalert2";
 const Login = () => {
     const {setUser, loginWithEmailPassword, handleGoogle} = useContext(AuthContext)
     const navigate = useNavigate()
+    const location = useLocation()
+
+    console.log(location)
 
     const handleLogin =(e)=>{
         e.preventDefault()

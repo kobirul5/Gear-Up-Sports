@@ -39,7 +39,7 @@ const Banner = () => {
                                         title={"Game On - Your Sports Gear Marketplace"}
                                         subtitle={"Discover top-quality sports equipment, apparel, and accessories to fuel your passion and elevate your performance."}
                                     ></Heading>
-                                    <button className="btn bg-neutral text-white">Shop Now</button>
+                                    <button className="btn bg-[#ff92527e] hover:bg-btn-color border-btn-color hover:border-btn-color text-white">Shop Now</button>
                                 </div>
                             </Bounce>
                         </div>
@@ -59,7 +59,7 @@ const Banner = () => {
                                         title={"Gear Up for Victory: Your Ultimate Sports Store"}
                                         subtitle={"Shop top-quality sports gear, apparel, and accessories for every athlete."}
                                     ></Heading>
-                                    <button className="btn bg-neutral text-white">Shop Now</button>
+                                    <button className="btn bg-[#ff92527e] hover:bg-btn-color border-btn-color hover:border-btn-color  text-white">Shop Now</button>
                                 </div>
                             </Bounce>
                         </div>
@@ -79,7 +79,7 @@ const Banner = () => {
                                         title={"Explore Top-Quality Sports Gear and Equipment for Every Athlete"}
                                         subtitle={"Find everything you need to succeed in your sport, from professional-grade equipment to apparel and accessories"}
                                     ></Heading>
-                                    <button className="btn bg-neutral text-white">Shop Now</button>
+                                    <button className="btn bg-[#ff92527e] hover:bg-btn-color border-btn-color hover:border-btn-color text-white">Shop Now</button>
                                 </div>
                             </Bounce>
                         </div>
@@ -99,7 +99,7 @@ const Banner = () => {
                                         title={"Gear Up for Success"}
                                         subtitle={"Top-Quality Sports Equipment & Apparel for Every Athlete"}
                                     ></Heading>
-                                    <button className="btn bg-neutral text-white">Shop Now</button>
+                                    <button className="btn bg-[#ff92527e] hover:bg-btn-color border-btn-color hover:border-btn-color text-white">Shop Now</button>
                                 </div>
                             </Bounce>
                         </div>
