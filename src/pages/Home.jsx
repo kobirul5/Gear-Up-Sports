@@ -6,6 +6,7 @@ import { Link, NavLink, Outlet, useLoaderData } from "react-router-dom";
 import Sports from "../components/Sports";
 import NewsLetter from "../components/NewsLetter";
 import Benefits from "../components/Benefits";
+import Discount from "../components/Discount";
 
 const Home = () => {
     const { user } = useContext(AuthContext)
@@ -54,8 +55,8 @@ const Home = () => {
 
                 </div>
             </section>
-            <section className="container mx-auto px-5 md:px-10 my-12">
-
+            <section className="container mx-auto px-5 md:px-10 my-12"> 
+                <Discount></Discount>
                 <Sports></Sports>
                 <NewsLetter></NewsLetter>
 
