@@ -7,6 +7,7 @@ export const AuthContext = createContext()
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
+    const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light")
 
     // register
     const signUpWithEmailPassword = (email, password) => {
@@ -62,7 +63,9 @@ const AuthProvider = ({ children }) => {
         loginWithEmailPassword,
         handleGoogle,
         logout,
-        updatedProfileInfo
+        updatedProfileInfo,
+        theme,
+        setTheme
     }
 
     return (

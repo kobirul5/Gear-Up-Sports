@@ -1,18 +1,19 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Loading from "../components/Loading";
 import Footer from "../components/Footer";
 
 const MainLayout = () => {
-    const { loading } = useContext(AuthContext)
+    const { loading, theme } = useContext(AuthContext)
 
     if (loading) {
         return <Loading></Loading>
     }
+
     return (
-        <div className="mx-auto">
+        <div className={`mx-auto ${theme === "light"? "text-dark":"text-secondary"}`}>
             <nav className="">
 
                 <Navbar></Navbar>

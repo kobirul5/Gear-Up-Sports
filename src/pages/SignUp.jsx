@@ -15,7 +15,12 @@ const SignUp = () => {
         const password = form.password.value
         const regex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
         if (!regex.test(password)) {
-            return alert("Please enter upper case, lower case and minimum 6 character password")
+            return Swal.fire({
+                title: 'Error',
+                text: 'Password must be at least 6 characters long and include both uppercase and lowercase letters',
+                icon: 'error',
+                confirmButtonText: 'Close'
+              })
         }
 
         signUpWithEmailPassword(email, password)
@@ -27,7 +32,7 @@ const SignUp = () => {
                 .then(result=>{
                     Swal.fire({
                         title: 'Success',
-                        text: 'Login Successfully',
+                        text: 'Sign Up Successfully',
                         icon: 'success',
                         confirmButtonText: 'Close'
                       })
@@ -53,7 +58,7 @@ console.log(user)
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Sign Up now!</h1>
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                <div className="card bg-base-100 w-full max-w-sm shrink-0 border">
                     <form onSubmit={handleSignUp} className="card-body pb-2">
                         <div className="form-control">
                             <label className="label">

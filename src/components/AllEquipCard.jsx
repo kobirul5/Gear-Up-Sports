@@ -17,9 +17,6 @@ const AllEquipCard = () => {
       }
     },[category, location])
 
-
-
-    console.log(location)
     return (
         <div className="">
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#132A13',
+        'primary': '#FF851B',
+        'secondary': '#F9F9F9',
+        'btn-color': '#3D9970',
         'dark': '#090E08',
       },
     },
@@ -16,6 +18,6 @@ export default {
     require('daisyui'),
   ],
   daisyui: {
-    themes: ["light", "dark",],
+    themes: ["light", "business",],
   },
 }

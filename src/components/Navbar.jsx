@@ -6,17 +6,15 @@ import { Tooltip as ReactTooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css'
 
 const Navbar = () => {
-    const { user, logout } = useContext(AuthContext)
-    const [theme, setTheme] = useState(localStorage.getItem("theme") ? localStorage.getItem("theme") : "light")
+    const { user, logout, theme, setTheme } = useContext(AuthContext)
 
     const handleToggle = (e) => {
         if (e.target.checked) {
-            setTheme("dark")
+            setTheme("business")
         } else {
             setTheme("light")
         }
     }
-
 
     useEffect(() => {
         localStorage.setItem("theme", theme)
@@ -24,7 +22,7 @@ const Navbar = () => {
         document.querySelector("html").setAttribute("data-theme", localTheme)
     }, [theme])
     return (
-        <div className="navbar bg-base-100 rounded-3xl container mx-auto">
+        <div className="navbar bg-primary text-secondary mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost px-0 lg:hidden">
