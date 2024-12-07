@@ -13,7 +13,8 @@ const Sports = () => {
     return (
         <div className='my-10'>
             <div>
-                <h1 className='text-2xl md:text-5xl text-center font-semibold my-10'>Sports Categories</h1>
+                <h1 className='text-2xl md:text-5xl text-center font-semibold mr-10'>Sports Categories</h1>
+                <p className='text-center my-3'>Discover exciting sports categories like Basketball, Football, Cricket, and American Football etc.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
                 {categories.map((category, index) => (

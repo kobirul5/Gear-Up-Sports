@@ -30,7 +30,7 @@ const UpdateEquipment = () => {
 
         const updatedEquipment = { itemName, categoryName, price, rating, customization, processingTime, stockStatus, photoUrl, userEmail, userName, description,}
 
-        fetch(`http://localhost:4000/allEquipment/${_id}`, {
+        fetch(`https://assignment-10-server-beta-self.vercel.app/allEquipment/${_id}`, {
             method: "PUT",
             headers:{
                 "content-type": "application/json"
@@ -53,10 +53,10 @@ const UpdateEquipment = () => {
     }
 
     return (
-        <div className="flex justify-center items-center py-10 bg-gray-100">
-            <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-3xl">
+        <div className="flex justify-center items-center py-10">
+            <div className="shadow-lg rounded-lg p-8 w-full max-w-3xl border border-primary">
                 <h1 className="text-2xl font-bold text-center mb-2">Update New Equipment</h1>
-                <p className="text-center text-gray-600 mb-6">
+                <p className="text-center mb-6">
                     Fill out the details below to Updated what you Want. Make sure to provide accurate information.
                 </p>
                 <form onSubmit={handleUpdateEquipment} className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -67,7 +67,7 @@ const UpdateEquipment = () => {
                             type="text" 
                             defaultValue={itemName}
                             placeholder="Enter item name"
-                            className="input input-bordered w-full"
+                            className="input border-primary input-bordered w-full"
                             name="itemName"
                         />
                     </div>
@@ -78,7 +78,7 @@ const UpdateEquipment = () => {
                         <input
                             type="text"
                             placeholder="Enter category name"
-                            className="input input-bordered w-full"
+                            className="input border-primary input-bordered w-full"
                             name="categoryName"
                             defaultValue={categoryName}
                         />
@@ -90,7 +90,7 @@ const UpdateEquipment = () => {
                         <input
                             type="number"
                             placeholder="Enter price"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="price"
                             defaultValue={price}
                         />
@@ -104,7 +104,7 @@ const UpdateEquipment = () => {
                             step="0.1"
                             max="5"
                             placeholder="Enter rating (out of 5)"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="rating"
                             defaultValue={rating}
                         />
@@ -116,7 +116,7 @@ const UpdateEquipment = () => {
                         <input
                             type="text"
                             placeholder="Enter customization details"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="customization"
                             defaultValue={customization}
                         />
@@ -128,7 +128,7 @@ const UpdateEquipment = () => {
                         <input
                             type="text"
                             placeholder="Enter processing/delivery time"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="processingTime"
                             defaultValue={processingTime}
                         />
@@ -140,7 +140,7 @@ const UpdateEquipment = () => {
                         <input
                             type="number"
                             placeholder="Enter available quantity"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="stockStatus"
                             defaultValue={stockStatus}
                         />
@@ -152,7 +152,7 @@ const UpdateEquipment = () => {
                         <input
                             type="text"
                             placeholder="Enter Photo URL"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="photoUrl"
                             defaultValue={photoUrl}
                         />
@@ -165,7 +165,7 @@ const UpdateEquipment = () => {
                             type="email"
                             value={`${user?.email}`} readOnly
                             placeholder="Enter user email"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="userEmail"
                             
                         />
@@ -178,7 +178,7 @@ const UpdateEquipment = () => {
                             type="text"
                             value={`${user?.displayName}`} readOnly
                             placeholder="Enter user name"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="userName"
                         />
                     </div>
@@ -188,7 +188,7 @@ const UpdateEquipment = () => {
                         <label className="block text-sm font-medium mb-1">Description</label>
                         <textarea
                             placeholder="Enter item description"
-                            className="textarea textarea-bordered w-full"
+                            className="textarea textarea-bordered border-primary w-full"
                             name="description"
                             defaultValue={description}
                         ></textarea>

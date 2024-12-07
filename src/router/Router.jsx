@@ -25,17 +25,17 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: ()=> fetch("http://localhost:4000/allEquipment"),
+                loader: ()=> fetch("https://assignment-10-server-beta-self.vercel.app/allEquipment"),
                 children: [
                     {
                         path: '/',
                         element:<AllEquipCard></AllEquipCard>,
-                        loader: ()=> fetch("http://localhost:4000/allEquipment")
+                        loader: ()=> fetch("https://assignment-10-server-beta-self.vercel.app/allEquipment/limit")
                     },
                     {
                         path: '/category/:category',
                         element:<AllEquipCard></AllEquipCard>,
-                        loader: ()=> fetch("http://localhost:4000/allEquipment")
+                        loader: ()=> fetch("https://assignment-10-server-beta-self.vercel.app/allEquipment")
                     },
 
                 ]
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
                 path:"/equipmentDetails/:id",
                 element: <EquipmentPrivate><EquipmentDetails></EquipmentDetails></EquipmentPrivate>,
                 loader: async ({params})=> {
-                 const res = await fetch("http://localhost:4000/allEquipment")
+                 const res = await fetch("https://assignment-10-server-beta-self.vercel.app/allEquipment")
                   const allData = await res.json()
                   const singleData = allData.find(data=> data._id === params.id)
                   return singleData
@@ -61,12 +61,12 @@ const router = createBrowserRouter([
             {
                 path:"/myEquipment",
                 element: <MyEquipPrivate><MyEquipment></MyEquipment></MyEquipPrivate>,
-                loader: async ()=> fetch("http://localhost:4000/allEquipment")
+                loader: async ()=> fetch("https://assignment-10-server-beta-self.vercel.app/allEquipment")
             },
             {
                 path:"/updateEquipment/:id",
                 element:<UpdateEquipPrivate><UpdateEquipment></UpdateEquipment></UpdateEquipPrivate>,
-                loader: ({params})=>fetch(`http://localhost:4000/allEquipment/${params.id}`)
+                loader: ({params})=>fetch(`https://assignment-10-server-beta-self.vercel.app/allEquipment/${params.id}`)
             }
         ]
     },

@@ -1,5 +1,5 @@
 import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
-import { NavLink } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -12,10 +12,9 @@ const Footer = () => {
             </nav>
             <nav >
                 <h6 className="footer-title">Company</h6>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/allEquipment">All Sports Equipment</NavLink>
-                    <NavLink to="/addEquipment">Add Equipment</NavLink>
-                    <NavLink to="/myEquipment">My Equipment List</NavLink>
+                    <Link to="/allEquipment">All Sports Equipment</Link>
+                    <Link to="/addEquipment">Add Equipment</Link>
+                    <Link to="/myEquipment">My Equipment List</Link>
                     <a>Contact Us</a>
 
             </nav>

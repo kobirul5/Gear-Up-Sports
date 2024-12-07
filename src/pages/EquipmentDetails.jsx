@@ -30,6 +30,7 @@ const EquipmentDetails = () => {
                     <div>
                         <p className="text-2xl font-bold mb-3">Rating: {rating}</p>
                         <Rating
+                            initialRating={rating}
                             emptySymbol={<FaStar style={{ color: "gray", fontSize: "30px" }} />}
                             fullSymbol={<FaStar className="fa fa-star" style={{ color: "#FF851B", fontSize: "30px" }} />}
                         >

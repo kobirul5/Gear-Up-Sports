@@ -6,7 +6,7 @@ import Snow from "../assets/Snow.svg";
 const NewsLetter = () => {
     return (
         <div
-            className="sm:w-[80%] text-white mx-auto px-10 py-20 border rounded-3xl"
+            className="sm:w-[80%] text-white mx-auto px-10 py-20  rounded-3xl"
             style={{
                 backgroundImage: `url(${Snow})`,
             }}

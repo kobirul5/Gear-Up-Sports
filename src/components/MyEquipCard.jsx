@@ -9,7 +9,6 @@ const MyEquipCard = ({ myEquipment, myData, setMyData }) => {
 
 
     const handleADeleteEquipment = (id) => {
-        console.log(id)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -20,12 +19,11 @@ const MyEquipCard = ({ myEquipment, myData, setMyData }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:4000/allEquipment/${_id}`, {
+                fetch(`https://assignment-10-server-beta-self.vercel.app/allEquipment/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data)
                         if (data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",

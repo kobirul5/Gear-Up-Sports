@@ -14,7 +14,7 @@ const MainLayout = () => {
     }
 
     return (
-        <div className={`mx-auto ${theme === "light" ? "text-dark" : "text-secondary"}`}>
+        <div className={`mx-auto ${theme === "light" ? "text-dark bg-orange-50" : "text-secondary"}`}>
             <nav className="">
 
                 <Navbar></Navbar>

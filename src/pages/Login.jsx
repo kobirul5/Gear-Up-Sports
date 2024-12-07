@@ -5,11 +5,9 @@ import GoogleIcon from "../assets/icons/google.png";
 import Swal from "sweetalert2";
 
 const Login = () => {
-    const {setUser, loginWithEmailPassword, handleGoogle} = useContext(AuthContext)
+    const {setUser, theme, loginWithEmailPassword, handleGoogle} = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
-
-    console.log(location)
 
     const handleLogin =(e)=>{
         e.preventDefault()
@@ -20,7 +18,7 @@ const Login = () => {
         .then((userdata) => {
             const user = userdata.user;
             setUser(user)
-            navigate('/')
+            navigate(location?.state ? location.state : '/')
             Swal.fire({
                 title: 'Success',
                 text: 'Login Successfully',
@@ -46,12 +44,12 @@ const Login = () => {
         }, 3000);
     }
     return (
-        <div className="hero bg-base-200 min-h-screen">
+        <div className="hero mt-10">
             <div className="hero-content flex-col lg:w-1/2">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 border">
+                <div className={`card ${theme === 'light' ? 'bg-orange-100': ''} w-full max-w-sm lg:min-w-[500px] shrink-0 border`}>
                     <form onSubmit={handleLogin} className="card-body pb-2">
                         <div className="form-control">
                             <label className="label">
@@ -69,11 +67,11 @@ const Login = () => {
                             </label>
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="btn bg-[#ff92527e] hover:bg-btn-color border-btn-color hover:border-btn-color hover:text-secondary">Login</button>
                         </div>
                     </form>
                     <div className="flex flex-col justify-center px-8 text-center gap-2">
-                        <button onClick={handleGoogleLogin} className="flex gap-2 border p-2">
+                        <button onClick={handleGoogleLogin} className="flex gap-2 border border-primary hover:bg-primary hover:text-white p-2">
                             <img className="w-6" src={GoogleIcon} alt="" />
                             <p>Continue With Google</p>
                         </button>

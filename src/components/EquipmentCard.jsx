@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const EquipmentCard = ({ equipment }) => {
     const { _id, itemName, categoryName, price, rating, customization, processingTime, stockStatus, photoUrl, description, } = equipment
     return (
-        <div className="card bg-base-100 shadow-xl border rounded-2xl">
+        <div className="card  shadow-xl border border-primary rounded-2xl">
             <figure className="px-5 pt-5">
                 <img
                     src={photoUrl}

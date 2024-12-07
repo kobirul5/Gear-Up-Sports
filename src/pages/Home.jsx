@@ -15,8 +15,7 @@ const Home = () => {
     useEffect(() => {
         const uniqueCategories = [...new Set(allData?.map(item => item.categoryName))];
         setAllEquipment(uniqueCategories)
-    }, [])
-    // console.log(allEquipment)
+    }, [setAllEquipment])
     return (
         <div>
             <Banner></Banner>
@@ -30,7 +29,7 @@ const Home = () => {
                 <div className="grid grid-cols-12 gap-5 container my-12 mx-auto px-5 md:px-10">
                     {/* category */}
                     <div 
-                    className="col-span-12 md:col-span-3 flex flex-col border p-5 rounded-3xl gap-3">
+                    className="col-span-12 md:col-span-3 flex flex-col border border-primary p-5 rounded-3xl gap-3">
                         
                         <NavLink 
                         to={`/category/allEquip`} 

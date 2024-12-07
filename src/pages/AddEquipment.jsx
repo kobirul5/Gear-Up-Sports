@@ -34,9 +34,8 @@ const AddEquipment = () => {
             userName,
             description,
         }
-            // console.log(items)
 
-        fetch("http://localhost:4000/allEquipment", {
+        fetch("https://assignment-10-server-beta-self.vercel.app/allEquipment", {
             method: "POST",
             headers:{
                 "content-type": "application/json"
@@ -45,7 +44,6 @@ const AddEquipment = () => {
         })
         .then(res=> res.json())
         .then(data=>{
-            console.log(data)
             if(data.insertedId){
                 Swal.fire({
                     title: 'successful!',
@@ -62,9 +60,9 @@ const AddEquipment = () => {
 
     return (
         <div className="flex justify-center items-center py-10">
-            <div className=" shadow-lg rounded-lg p-8 w-full max-w-3xl border">
+            <div className=" shadow-lg rounded-lg p-8 w-full max-w-3xl border border-primary">
                 <h1 className="text-2xl font-bold text-center mb-2">Add New Equipment</h1>
-                <p className="text-center text-gray-600 mb-6">
+                <p className="text-center mb-6">
                     Fill out the details below to add a new item. Make sure to provide accurate information.
                 </p>
                 <form onSubmit={handleAddEquipment} className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -74,7 +72,7 @@ const AddEquipment = () => {
                         <input
                             type="text"
                             placeholder="Enter item name"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="itemName"
                         />
                     </div>
@@ -85,7 +83,7 @@ const AddEquipment = () => {
                         <input
                             type="text"
                             placeholder="Enter category name"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="categoryName"
                         />
                     </div>
@@ -97,7 +95,7 @@ const AddEquipment = () => {
                             type="number"
                             placeholder="Enter price"
                             step="any"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="price"
                         />
                     </div>
@@ -110,7 +108,7 @@ const AddEquipment = () => {
                             step="0.1"
                             max="5"
                             placeholder="Enter rating (out of 5)"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="rating"
                         />
                     </div>
@@ -121,7 +119,7 @@ const AddEquipment = () => {
                         <input
                             type="text"
                             placeholder="Enter customization details"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="customization"
                         />
                     </div>
@@ -132,7 +130,7 @@ const AddEquipment = () => {
                         <input
                             type="text"
                             placeholder="Enter processing/delivery time"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="processingTime"
                         />
                     </div>
@@ -143,7 +141,7 @@ const AddEquipment = () => {
                         <input
                             type="number"
                             placeholder="Enter available quantity"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="stockStatus"
                         />
                     </div>
@@ -154,7 +152,7 @@ const AddEquipment = () => {
                         <input
                             type="text"
                             placeholder="Enter Photo URL"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="photoUrl"
                         />
                     </div>
@@ -167,7 +165,7 @@ const AddEquipment = () => {
                             // defaultValue={`${user?.email}`}
                             value={`${user?.email}`} readOnly
                             placeholder="Enter user email"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="userEmail"
                         />
                     </div>
@@ -179,7 +177,7 @@ const AddEquipment = () => {
                             type="text"
                             value={`${user?.displayName}`} readOnly
                             placeholder="Enter user name"
-                            className="input input-bordered w-full"
+                            className="input input-bordered border-primary w-full"
                             name="userName"
                         />
                     </div>
@@ -189,7 +187,7 @@ const AddEquipment = () => {
                         <label className="block text-sm font-medium mb-1">Description</label>
                         <textarea
                             placeholder="Enter item description"
-                            className="textarea textarea-bordered w-full"
+                            className="textarea textarea-bordered border-primary w-full"
                             name="description"
                         ></textarea>
                     </div>

@@ -6,7 +6,7 @@ const AllEquipCard = () => {
     const loadedEquipments = useLoaderData()
     const location = useLocation()
     const {category}= useParams()
-    const [equipments, setEquipments] = useState(loadedEquipments.slice(0,6))
+    const [equipments, setEquipments] = useState(loadedEquipments)
     useEffect(()=>{
         if(category === location.state){
           const filterData = [...loadedEquipments].filter(g => g.categoryName === category)
@@ -15,6 +15,10 @@ const AllEquipCard = () => {
       else if(location.pathname === "/category/allEquip"){
         setEquipments(loadedEquipments)
       }
+      else if(location.pathname === "/"){
+        setEquipments(loadedEquipments)
+      }
+     
     },[category, location])
 
     return (

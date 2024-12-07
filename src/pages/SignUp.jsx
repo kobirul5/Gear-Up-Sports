@@ -4,7 +4,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
 
 const SignUp = () => {
-    const { user, setUser, signUpWithEmailPassword, updatedProfileInfo } = useContext(AuthContext)
+    const { user, setUser,theme, signUpWithEmailPassword, updatedProfileInfo } = useContext(AuthContext)
     const navigate = useNavigate()
     const handleSignUp = (e) => {
         e.preventDefault()
@@ -51,14 +51,13 @@ const SignUp = () => {
                   })
             });
     }
-console.log(user)
     return (
-        <div className="hero bg-base-200 min-h-screen">
+        <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:w-1/2">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Sign Up now!</h1>
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 border">
+                <div className={`card ${theme === 'light' ? 'bg-orange-100': ''} w-full max-w-sm lg:min-w-[600px] shrink-0 border`}>
                     <form onSubmit={handleSignUp} className="card-body pb-2">
                         <div className="form-control">
                             <label className="label">
