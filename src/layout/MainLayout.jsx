@@ -23,12 +23,15 @@ const MainLayout = () => {
                 <Outlet></Outlet>
             </section>
             <section
-            style={{
-                backgroundImage: `url(${FooterImg})`,
-            }}
+                style={{
+                    backgroundImage: `url(${FooterImg})`,
+                }}
+                className="mt-10"
             >
 
                 <Footer></Footer>
+                <p className="text-center text-primary pb-5">&copy; 2024 GearUp Sports. All rights reserved.</p>
+
             </section>
         </div>
     );

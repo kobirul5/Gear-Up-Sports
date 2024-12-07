@@ -49,7 +49,7 @@ const Login = () => {
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
                 </div>
-                <div className={`card ${theme === 'light' ? 'bg-orange-100': ''} w-full max-w-sm lg:min-w-[500px] shrink-0 border`}>
+                <div className={`card ${theme === 'light' ? 'bg-orange-100': ''}  max-w-sm lg:min-w-[500px] shrink-0 border`}>
                     <form onSubmit={handleLogin} className="card-body pb-2">
                         <div className="form-control">
                             <label className="label">
