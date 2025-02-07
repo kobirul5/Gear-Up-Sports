@@ -1,7 +1,7 @@
 <h1>GearUp Sports</h1>
 
 <div >
-  <img height="200" src="./src/assets/projectImage/image1.jpg"  />
+  <img height="450" src="./src/assets/projectImage/image1.jpg"  />
 </div>
 
 ###
